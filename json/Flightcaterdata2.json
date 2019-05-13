@@ -1,0 +1,168 @@
+train({
+	"total": "11",
+	"rows": [{
+			"Flightnum": "HO1647",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/03/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y","W","CREW"],
+			"Detail":{
+				"Cater":[[30,50,60,20,10],[30,50,90,20,10]],
+				"Type":"2长"
+			}
+		},{
+			"Flightnum": "HO1647",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥-北京",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"false",
+			"Time":"2 4 6",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+		},{
+			"Flightnum": "HO1647",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y","W","CREW"],
+			"Detail":{
+				"Cater":[[30,50,60,20,10]],
+				"Type":"1短"
+			}
+		},{
+			"Flightnum": "HO16471",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+		},{
+			"Flightnum": "HO16472",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+		},{
+			"Flightnum": "HO16473",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2019/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+			
+		},{
+			"Flightnum": "HO16474",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2020/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+			
+		},{
+			"Flightnum": "HO16475",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+			
+		},{
+			"Flightnum": "HO16476",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+			
+		},{
+			"Flightnum": "HO16477",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+			
+		},{
+			"Flightnum": "HO16478",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+			
+		},{
+			"Flightnum": "HO1647",
+			"Associate": "HO1644",
+			"Route": "杭州-贵阳-虹桥",
+			"Stratdate": "2018/11/01",
+			"Enddate": "2019/3/31",
+			"Judge":"true",
+			"Time":"1 3 5",
+			"Seat":["F","C","Y"],
+			"Detail":{
+				"Cater":[[30,50,60],[30,50,90],[30,50,90]],
+				"Type":"2长1短"
+			}
+			
+		}
+	]
+})

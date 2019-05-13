@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>航班配餐计划</title>
+		<style type="text/css">
+			#tb_departments>tbody>tr>td {
+				text-align: center;
+				border: 0px;
+				border-bottom: 1px solid black;
+			}
+
+			#tb_departments>thead>tr>th {
+				text-align: center;
+				border: 0px;
+				background-color: rgba(204, 204, 204, 1);
+			}
+
+			#tb_departments {
+				border: 0px;
+				cursor: pointer;
+			}
+
+			tr span {
+				display: inline-block;
+				height: 20px;
+				line-height: 17px;
+				border-right: 3px solid rgba(204, 204, 204, 1);
+				padding: 2px 12px;
+				cursor: pointer;
+			}
+		</style>
+		<link href="css/bootstrapmin.css" rel="stylesheet" />
+		<link href="css/bootstrap-table.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+	</head>
+	<body>
+		<!-- <div class="container">
+			<div class="row">
+				<div class="table-responsive">
+					<div id="toolbar">
+						<form class="form-inline">
+							<div class="form-group">
+								<label class="sr-only" for="product_line"></label>
+								<div class="input-group">
+									<div class="input-group-addon">关键词</div>
+									<input type="text" class="form-control" name="searchTexts" id="searchText" style="width: 201px;" placeholder="航空公司代码/航班号">
+								</div>
+							</div>
+							<div class="form-group">
+								<select class="form-control" name="msg_type" id="msgType">
+									<option value="">请选择</option>
+									<option value="">航空公司代码</option>
+									<option value="">航班号</option>
+								</select>
+								<input type="text" class="form-control" name="searchTexts" id="searchText" style="width: 128px;">
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="product_line"></label>
+								<div class="input-group">
+						</form>
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="product_line"></label>
+						<div class="input-group">
+							<div class="input-group-addon">状态</div>
+							<select class="form-control" name="msg_type" id="msgType">
+								<option value="">请选择</option>
+								<option value="">启用</option>
+								<option value="">禁用</option>
+							</select>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary queryButton">查询</button>
+
+				</div>
+				<button id="btn_add" type="button" class="btn btn-default" onclick="primaryAssets()" style="margin-top:10px">
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+				</button>
+			</div>
+		</div> -->		
+		<table id="tb_departments"></table>
+
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/bootstrapmin.js"></script>
+		<script src="js/bootstrap-table.js"></script>
+		<script src="js/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" ></script>
+		<script type="text/javascript" src="js/Flightcater-confirm.js"></script>
+		<script src="js/knockout-3.4.0.js"></script>
+		<script src="js/knockout.mapping-latest.js"></script>
+		<script type="text/javascript">
+			
+			 //存放点击某一行的数据
+				var updateasset = {};
+		     // 
+			var data_ht = [{
+				Flightnum: "",
+				Associate: "",
+				Route: "",
+				Stratdate: "",
+				Enddate: "",
+				Time:"",
+				Seat:"",
+				Detail:{
+					Num:"",
+					Cater:{},
+					Type:""
+				}
+			}];
+
+			function train(data) {
+				data_ht = data.rows;
+				console.log(data);
+			}
+			$(function() {
+
+				//1.初始化Table
+				var oTable = new TableInit();
+				oTable.Init();
+
+				//2.初始化Button的点击事件
+				var oButtonInit = new ButtonInit();
+				oButtonInit.Init();
+			});
+			var TableInit = function() {
+				var oTableInit = new Object();
+				//初始化Table
+				oTableInit.Init = function() {
+					$('#tb_departments').bootstrapTable({
+						//url: 'data1.json',         //请求后台的URL（*）
+						// method: 'post',                      //请求方式（*）
+						toolbar: '#toolbar', //工具按钮用哪个容器
+						striped: true, //是否显示行间隔色
+						// cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+						pagination: true, //是否显示分页（*）
+						// sortable: true, //是否启用排序
+						// sortOrder: "asc", //排序方式
+						// queryParams: oTableInit.queryParams, //传递参数（*）
+						// sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+						pageNumber: 1, //初始化加载第一页，默认第一页
+						pageSize: 8, //每页的记录行数（*）
+						search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端
+						// strictSearch: true,
+						clickToSelect: true, //是否启用点击选中行
+						uniqueId: "id", //每一行的唯一标识，一般为主键列
+						onClickRow: function(row,$element) {
+							// row为点击某一行 时的数据
+							// $($element).index()点击的是第几行
+							updateasset.Flightnum =row.Flightnum;
+							updateasset.Associate = row.Associate;
+							updateasset.Route = row.Route;
+							updateasset.Stratdate = row.Stratdate;
+							updateasset.Enddate = row.Enddate;
+							updateasset.Time=data_ht[$($element).index()].Time;
+							updateasset.Seat=data_ht[$($element).index()].Seat;
+							updateasset.Detail=data_ht[$($element).index()].Detail;
+						},
+						columns: [{
+							field: 'Id',
+							title: '序号',
+							align: 'center',
+							formatter: function(value, row, index) {
+								return index + 1;
+							}
+						}, {
+							field: 'Flightnum',
+							title: '航班号',
+						}, {
+							field: 'Associate',
+							title: '关联配餐航班号',
+						}, {
+							field: 'Route',
+							title: '航线',
+						}, {
+							field: 'Stratdate',
+							title: '起始日期',
+						}, {
+							field: 'Enddate',
+							title: '截止日期',
+						}, {
+							field: 'operate',
+							title: '操作',
+							// 给每一行添加点击操作事件
+							formatter: function operateFormatter(value, row, index) {
+								if (data_ht[index].Judge == 'true') {
+									// 此时这行数据被启用
+									return [
+										'<span class="Detail">明细</span><span class="Edit">编辑</span><span class="Add">复制新增</span><span class="Doneselected">启用</span>',
+									].join('');
+									num++;
+								} else if (data_ht[index].Judge == 'false') {
+									// 此行数据被禁止
+									return [
+										'<span class="Detail">明细</span><span class="Edit">编辑</span><span class="Add">复制新增</span><span class="Doneselected">禁止</span>',
+									].join('');
+									num++;
+								}
+
+							}
+						}],
+						// 此处是给表格初始一个数据，是假数据
+						data: data_ht
+					});
+				};
+				//得到查询的参数
+				oTableInit.queryParams = function(params) {
+					var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+						limit: params.limit, //页面大小
+						offset: params.offset, //页码
+					};
+					return temp;
+				};
+				return oTableInit;
+			};
+
+			var ButtonInit = function() {
+				var oInit = new Object();
+				var postdata = {};
+
+				oInit.Init = function() {
+					//初始化页面上面的按钮事件
+				};
+				return oInit;
+			};
+			// 初始化search的提示
+			// var search = "20181009"
+			// $("#tb_departments").bootstrapTable("resetSearch", search);
+			// 明细查看
+			$("#tb_departments").on("click", ".Detail", function() {
+				myConfirm('配餐计划明细', updateasset, function(r) {
+					if (r) {
+						console.log(r);
+					}
+				});
+			})
+			// 编辑
+			$("#tb_departments").on("click", ".Edit", function() {
+				myConfirm('编辑配餐计划', updateasset, function(r) {
+					if (r) {
+						console.log(r);
+					}
+				});
+			})
+			// 复制新增
+			$("#tb_departments").on("click", ".Add", function() {
+				myConfirm('复制新增', updateasset, function(r) {
+					if (r) {
+						console.log(r);
+					}
+				});
+			})
+			// 对启用 禁用做操作
+			$("#tb_departments").on("click", ".Doneselected", function() {
+
+				if ($(this).text() == "启用") {
+					var msg = confirm("确认修改状态为'禁止'?");
+					if (msg) {
+						$(this).text("禁止");
+						// 使用ajax传递给后台最新数据
+					} else {
+
+					}
+				} else {
+					var msg = confirm("确认修改状态为'启用'?");
+					if (msg) {
+						$(this).text("启用");
+						// 使用ajax传递给后台最新数据
+					} else {
+
+					}
+				}
+			});
+		</script>
+		<script src="json/Flightcaterdata2.json?cb=train"></script>
+	</body>
+
+</html>

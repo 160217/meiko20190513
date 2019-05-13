@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>进港航班信息查询界面</title>
+		<style type="text/css">
+			.container {
+
+				background-color: rgba(249, , 29, 249, 1);
+				/* border: 1px solid red; */
+
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/bootstrapmin.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="table-responsive">
+					<div id="toolbar">
+						<form class="form-inline">
+							<div class="form-group">
+								<label class="sr-only" for="product_line"></label>
+								<div class="input-group">
+									<div class="input-group-addon">关键词</div>
+									<input type="text" class="form-control" name="searchTexts" id="searchText" style="width: 201px;">
+								</div>
+							</div>
+							<div class="form-group">
+								<select class="form-control" name="msg_type" id="msgType">
+									<option value="">属性</option>
+									<option value="">二字代码</option>
+									<option value="">三字代码</option>
+									<option value="">航班号</option>
+									<option value="">飞机号</option>
+									<option value="">机型</option>
+								</select>
+								<input type="text" class="form-control" name="searchTexts" id="searchText" style="width: 128px;">
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="product_line"></label>
+								<div class="input-group">
+									<!-- 日历 -->
+									<div class="form-group">
+										<label for="dtp_input1" class="col-md-4 control-label" style="line-height: 35px;">航班日期</label>
+										<div class="input-group date form_datetime col-md-6" data-link-field="dtp_input1">
+											<input class="form-control" size="16" type="text" value="" readonly>
+											<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+										</div>
+										<input type="hidden" id="dtp_input1" value="" /><br />
+									</div>
+						</form>
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="product_line"></label>
+						<div class="input-group">
+							<div class="input-group-addon">航班状态</div>
+							<select class="form-control" name="msg_type" id="msgType">
+								<option value="">正班</option>
+								<option value="">延误</option>
+								<option value="">取消</option>
+							</select>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary queryButton">查询</button>
+					<table id="tb_departments"></table>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/bootstrapmin.js"></script>
+		<script type="text/javascript" src="js/bootstrap-table.js"></script>
+		<script type="text/javascript" src="js/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datetimepicker.js" ></script>
+		<script type="text/javascript">
+			$(".form_datetime").datetimepicker({
+				format: 'yyyy-mm-dd',
+				weekStart: 0,
+				todayBtn: 1,
+				autoclose: true,
+				startView: 2,
+				minView: "month",
+				forceParse: false,
+				language: 'cn'
+			});
+			// $(".form-group").on("click",function(){
+			// 	console.log($(".form-group").find("option:selected").text());
+			// });
+		// console.log($(".form-group").find("option:selected").text()); selected选中的内容
+			
+		</script>
+	</body>
+
+</html>

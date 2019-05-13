@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="123"  class="id2"/>
+		<input type="text" name="" id="" value="234"  class="id1"/>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js">
+		
+	</script>
+	<script type="text/javascript">
+		// console.log($(".id2"))
+		$(".id2").bind('input onfocus',function(){
+			console.log($(this).val());
+			
+		})
+		 $(".id2").bind('input propertychange',function(){
+		       
+		       
+		        console.log($(this).val());
+		    })
+	</script>
+</html>

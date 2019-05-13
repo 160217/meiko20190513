@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width" />
+
+		<title>航空公司目录</title>
+		<style type="text/css">
+			.Hide {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: rgba(250, 250, 250, 0.4);
+			}
+			.Hidecontent {
+				width: 608px;
+				height: 472px;
+				background: rgba(242, 242, 242, 1);
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin: -236px 0 0 -304px;
+			}
+			.a-upload {
+				padding: 4px 10px;
+				height: 34px;
+				width:68px;
+				line-height: 24px;
+				position: relative;
+				top:0;
+				left:-17px;
+				cursor: pointer;
+				color: #444;
+				border: 1px solid rgba(202,202,202,1);
+				border-radius: 2px;
+				overflow: hidden;
+				display: inline-block;
+				text-decoration:none;
+			}
+			.a-upload input {
+				position: absolute;
+				font-size: 100px;
+				right: 0px;
+				top: 0;
+				cursor: pointer	
+			}
+			.a-upload:hover {
+				background-color: rgba(202,202,202,1);				
+			}
+		</style>
+		<link href="css/bootstrapmin.css" rel="stylesheet" />
+		<link href="css/bootstrap-table.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+	</head>
+	<body>
+		<div id="toolbar" class="btn-group">
+			 <button id="btn_add" type="button" class="btn btn-default" onclick="primaryAssets()">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+			</button>
+			 <button id="btn_edit" type="button" class="btn btn-default" onclick="updateAssets()">
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+			</button>
+			<button id="btn_remove" type="button" class="btn btn-default" onclick="btn_del()">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+			</button>
+			<div  class="a-upload">
+				<input type="file" name="" id="excel-file"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span>上传
+			</div>
+			 </div>
+		    <table id="tb_departments"></table>
+		<div class="Hide" style="display: none;">
+			<div class="Hidecontent">
+
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrapmin.js"></script>
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-zh-CN.js"></script>
+	<script type="text/javascript" src="js/confirm-data.js"></script>
+	<script src="js/knockout-3.4.0.js"></script>
+	<script src="js/knockout.mapping-latest.js"></script>
+	<script src="js/xlsx.core.min.js"></script>
+	<script type="text/javascript">
+		var num = 1; //计数器
+		var data_ht = [{
+			Type: "",
+			Name: "",
+			ParentName: "",
+			Level: "",
+			Desc: ""
+		}];
+		function train(data) {
+			data_ht = data.rows;
+		}
+		$(function() {
+
+			//1.初始化Table
+			var oTable = new TableInit();
+			oTable.Init();
+
+			//2.初始化Button的点击事件
+			var oButtonInit = new ButtonInit();
+			oButtonInit.Init();
+		});
+		var TableInit = function() {
+			var oTableInit = new Object();
+			//初始化Table
+			oTableInit.Init = function() {
+				$('#tb_departments').bootstrapTable({
+					//url: 'data1.json',         //请求后台的URL（*）
+					// method: 'post',                      //请求方式（*）
+					toolbar: '#toolbar', //工具按钮用哪个容器
+					striped: true, //是否显示行间隔色
+					// cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+					pagination: true, //是否显示分页（*）
+					// sortable: true, //是否启用排序
+					// sortOrder: "asc", //排序方式
+					// queryParams: oTableInit.queryParams, //传递参数（*）
+					// sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+					pageNumber: 1, //初始化加载第一页，默认第一页
+					pageSize: 8, //每页的记录行数（*）
+					search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端
+					// strictSearch: true,
+					clickToSelect: true, //是否启用点击选中行
+					uniqueId: "id", //每一行的唯一标识，一般为主键列
+					columns: [{
+						checkbox: true,
+					}, {
+						field: 'Type',
+						title: '类型'
+					}, {
+						field: 'Name',
+						title: '航空公司编码'
+					}, {
+						field: 'ParentName',
+						title: '航空公司名称'
+					}, {
+						field: 'Level',
+						title: '二字代码'
+					}, {
+						field: 'Desc',
+						title: '三字代码'
+					}],
+					// 此处是给表格初始一个数据，是假数据
+					data: data_ht
+				});
+			};
+			//得到查询的参数
+			oTableInit.queryParams = function(params) {
+				var temp = { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+					limit: params.limit, //页面大小
+					offset: params.offset, //页码
+				};
+				return temp;
+			};
+			return oTableInit;
+		};
+
+		var ButtonInit = function() {
+			var oInit = new Object();
+			var postdata = {};
+
+			oInit.Init = function() {
+				//初始化页面上面的按钮事件
+			};
+			return oInit;
+		};
+		// 插入数据
+		function primaryAssets() {
+			myConfirm('新增航空公司目录', '', function(r) {
+				if (r) {
+					// r是对象,含有新增的数据
+					$('#tb_departments').bootstrapTable('prepend',r);
+				}
+			});
+		}
+		// 删除数据
+		function btn_del() {
+			var ids = $("#tb_departments").bootstrapTable('getSelections');
+			// console.log(ids)
+			if (ids.length < 1) {
+				alert("请至少选择一行删除!");
+			} else {
+				var num = data_ht.length - ids.length;
+				for (var i = 0; i < ids.length; i++) {
+					$('#tb_departments').bootstrapTable('remove', {
+						field: 'ParentName',
+						values: ids[i].ParentName
+					});
+				}
+			}
+		};
+		// 修改数据
+		function updateAssets() {
+			var ids = $("#tb_departments").bootstrapTable('getSelections');
+			var updateasset = ids[0];
+			if (ids.length == 1) {
+				//判断点击的是第几行数据
+				var Updatenum=$('table tr').closest('.selected').index();
+				// 
+				myConfirm('修改航空公司目录', updateasset, function(r) {
+					if (r) {
+						// console.log(r)
+						// r是数组,含有修改之后的数据
+						$('#tb_departments').bootstrapTable('updateRow', {
+							index:Updatenum,
+							row:r
+						});
+					}
+				});
+			} else {
+				alert("只能选择一行")
+			}
+		}
+		//导入数据
+		window.onload = function() {
+			$("#excel-file").change(function(e) {
+				var files = e.target.files;
+				var fileReader = new FileReader();
+				fileReader.onload = function(ev) {
+					try {
+						var data = ev.target.result,
+							workbook = XLSX.read(data, {
+								type: 'binary'
+							}), // 以二进制流方式读取得到整份excel表格对象
+							persons = []; // 存储获取到的数据
+					} catch (e) {
+						console.log('文件类型不正确');
+						return;
+					}
+
+					// 表格的表格范围，可用于判断表头是否数量是否正确
+					var fromTo = '';
+					// 遍历每张表读取
+					for (var sheet in workbook.Sheets) {
+						if (workbook.Sheets.hasOwnProperty(sheet)) {
+							fromTo = workbook.Sheets[sheet]['!ref'];
+							console.log(fromTo);
+							persons = persons.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+							// break; // 如果只取第一张表，就取消注释这行
+						}
+					}
+					console.log(persons);
+					//将导入数据展现在页面上
+					for (var i = 0; i < persons.length; i++) {
+						$('#tb_departments').bootstrapTable('insertRow', {
+							index: num,
+							row: persons[i]
+						});
+						num++;
+					};
+				}
+				// 以二进制方式打开文件
+				fileReader.readAsBinaryString(files[0]);
+			});
+		}
+		
+	</script>
+	<script src="json/data1.json?cb=train"></script>
+</html>

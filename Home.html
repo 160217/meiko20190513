@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrapmin.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.navbar-fixed-top{
+				height: 75px;
+				background-color: rgba(70,76,91,1);
+				position: relative;
+				color: white;
+				
+			}
+			.navbar-fixed-top .Left{
+				position: relative;
+			}
+			.navbar-fixed-top .Left img{
+				width: 58px;
+				height: 35px;
+				margin: 20px 10px 0 22px;
+			}
+			.navbar-fixed-top .Left .Titletext{
+				font-size: 38px;
+				position: absolute;
+				top: 10.5px;
+				left: 88px;
+				
+			}
+			.navbar-fixed-top .Right{
+				position: absolute;
+				top: 26.5px;
+				right: 30px;
+				color: rgba(204,204,204,1);
+				cursor: pointer;
+			}
+			.navbar-fixed-top .Titlecommon{
+				font-size: 19px;
+				position: absolute;
+				top: 24px;
+				left: 237px;
+				color: rgba(204,204,204,1);
+			}
+			.navbar-fixed-top .Right p{
+				display: inline-block;
+			}
+			.navbar-fixed-top .Right .Fit{
+				margin-right: 5px;
+			}
+			.navbar-fixed-top .Right .Fit img{
+				width: 19px;
+				height: 19px;
+			}
+			/*  */
+			 .Wrap {
+                width: 100%;
+                position: absolute;
+                background: rgba(242,242,242,1) bottom;
+                overflow: hidden;
+				margin-top: -20px;
+            }
+           .left{
+                margin-left:0px;
+                position: absolute;
+                box-sizing: border-box;
+                width: 200px;
+                height: 100%;
+                background: rgba(242,242,242,1) bottom;
+            }
+            .menu-title { 
+                font-size: 17px;
+				width: 194px;
+				height: 47px;
+				border-bottom:1px solid black ;
+				padding-top: 12px;
+				cursor: pointer;
+            }
+            .menu-item {
+                font-size: 14px;
+                width: 194px;
+                height: 47px;
+                border-bottom:1px solid black ;
+                padding-top: 12px;
+				background-color: white;
+				cursor: pointer;
+            }
+			.menu-item:hover{
+				font-weight: 800;
+			}
+            .Wrap .menu-title img:nth-child(1){
+				margin-left: 23px;
+				margin-right: 12px;
+			}
+			.Wrap .menu-title span{
+				display:inline-block;
+				margin-right: 22px;
+				min-width: 68px;
+				
+			}
+			.Wrap .menu-item img{
+				margin-left: 23px;
+				margin-right: 12px;
+			}
+			.Wrap .menu-item span{
+				margin-right: 22px;
+			}
+			.menu-title1{
+				position: absolute;
+				top:-47px;
+				left: 0;
+		        background: rgba(242,242,242,1);	
+			}
+			.tab-content {
+				margin-left: 200px;
+			}
+			.Wrap ul{
+				margin-bottom: 0;
+			}
+			/*  */
+			
+		</style>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+          <div class="Left">
+          	<img src="img/logo.png" ><span class="Titletext" >ACIS</span><span class="Titlecommon">公共信息</span>
+          </div>
+          <div class="Right">
+          	<p class="Fit"><img src="img/xiaoren.png">账户设置</p>
+			<p class="Rightexit"><img src="img/quit.png">退出登录</p>
+			
+          </div>
+        </div>
+		 <div class="Wrap">
+                <!-- 左边内容 -->
+                <div  class="left">
+				<ul style="position: relative;z-index:2;">
+					<li class="menu-title menu-title1">
+						<img src="img/fly.png" alt="" align="middle">
+						<span>航班动态</span>
+						<img src="img/fly-icon.png" alt="" class="fly-icon">
+					</li>
+                    <li class="menu-title">
+						<img src="img/fly.png" alt="" align="middle">
+						<span>航班动态</span>
+						<img src="img/fly-icon.png" alt="" class="fly-icon">
+				    </li>
+                    <li class="menu-item" href="#one" data-toggle="tab">
+						<img src="img/fly-info.png" alt="">
+                         进港航班信息
+                    </li>
+                    <li class="menu-item" href="#one" data-toggle="tab">
+                    	<img src="img/fly-info.png" alt="">
+                         出港航班信息
+                    </li>
+				</ul>
+				<ul style="position: relative">
+					<li class="menu-title menu-title1">
+						<img src="img/fly-book2.png" alt="" align="middle">
+						<span>基础数据</span>
+						<img src="img/fly-icon.png" alt="" class="fly-icon">
+					</li>
+					<li class="menu-title">
+						<img src="img/fly-book.png" alt="" align="middle">
+						<span>基础数据</span>
+						<img src="img/fly-icon.png" alt="" class="fly-icon">
+					</li>
+				    <li class="menu-item" href="#one" data-toggle="tab">
+				    	<img src="img/fly-book1.png" alt="">
+				         航空公司目录
+				    </li>
+				    <li class="menu-item" href="#one" data-toggle="tab">
+						<img src="img/fly-book1.png" alt="">
+				         机号机型目录
+				    </li>
+				    <li class="menu-item" href="#one" data-toggle="tab">
+				    	<img src="img/fly-book1.png" alt="">
+				         舱位等级目录
+				    </li>
+					 <li class="menu-item" href="#one" data-toggle="tab">
+						<img src="img/fly-book1.png" alt="">
+					     航班航段目录
+					</li>
+					<li class="menu-item" href="#one" data-toggle="tab">
+						<img src="img/fly-book1.png" alt="">
+					     配餐计划
+					</li>
+				</ul>
+                    
+                </div>
+                <!-- 右边内容 -->
+                <div class="tab-content right">
+                     <iframe src="Flightcater.html" width="100%" height="600"></iframe>
+                </div>
+      </div>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/bootstrapmin.js"></script>
+		<script type="text/javascript" src="js/confirm.js">
+			
+		</script>
+		<script type="text/javascript">
+
+			function Setwrapheight(){
+				var height=document.documentElement.clientHeight;
+				$(".Wrap").css({
+					"height":(height-75)+"px",
+				});
+			}
+			Setwrapheight();
+			window.onresize=function(){
+				Setwrapheight();
+			}
+			// 
+			$(".menu-title").on("click",function(){
+				if($(this).find(".fly-icon").attr("src")=="img/fly-icon.png"){
+					$(".menu-title1").css({
+						"z-index":"1"
+					});
+					$(this).parent().find(".fly-icon").attr("src","img/fly-icon1.png");
+					$(this).parent().find(".menu-item").slideToggle("100");
+					$(this).parent().find(".menu-title1").animate({
+							"top":"0",
+					 },200);
+					}else{
+					$(this).parent().find(".fly-icon").attr("src","img/fly-icon.png");
+					$(this).parent().find(".menu-item").fadeToggle("100");
+					$(".menu-title1").css({
+						"top":"-47px",
+						"z-index":"-1"
+					});
+				}
+			});
+			// 弹出框
+		 $(".Rightexit").bind("click", function () {
+		    myConfirm('退出确认','确定要退出登录吗?',function(r){  
+		        if(r){  
+		            window.location.href="Login.html";  
+		        }  
+		    });       
+		}); 
+		
+		</script>
+	</body>
+</html>

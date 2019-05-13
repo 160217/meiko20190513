@@ -1,0 +1,171 @@
+train({
+	"total": "11",
+	"rows": [{
+			"Type": "国内",
+			"Name": "15",
+			"ParentName": "春秋航空公司1",
+			"Level": "9C",
+			"Desc": "CQH"
+		},
+		{
+			"Type": "国内",
+			"Name": "15",
+			"ParentName": "海南省航空公司2",
+			"Level": "HU",
+			"Desc": "CHH"
+		},
+		{
+			"Type": "国内",
+			"Name": "11",
+			"ParentName": "四川航空公司3",
+			"Level": "3U",
+			"Desc": "CSC"
+		},
+		{
+			"Type": "国内",
+			"Name": "26",
+			"ParentName": "中国南方航空集团4",
+			"Level": "CZ",
+			"Desc": "CSN"
+		},
+		{
+			"Type": "国内",
+			"Name": "15",
+			"ParentName": "春秋航空公司5",
+			"Level": "9C",
+			"Desc": "CQH"
+		},
+		{
+			"Type": "国内",
+			"Name": "40",
+			"ParentName": "海南省航空公司6",
+			"Level": "HU",
+			"Desc": "CHH"
+		},
+		{
+			"Type": "国外",
+			"Name": "11",
+			"ParentName": "四川航空公司7",
+			"Level": "3U",
+			"Desc": "CSC"
+		},
+		{
+				"Type": "国内",
+				"Name": "15",
+				"ParentName": "春秋航空公司8",
+				"Level": "9C",
+				"Desc": "CQH"
+			},
+			{
+				"Type": "国内",
+				"Name": "15",
+				"ParentName": "海南省航空公司9",
+				"Level": "HU",
+				"Desc": "CHH"
+			},
+			{
+				"Type": "国内",
+				"Name": "11",
+				"ParentName": "四川航空公司10",
+				"Level": "3U",
+				"Desc": "CSC"
+			},
+			{
+				"Type": "国内",
+				"Name": "26",
+				"ParentName": "中国南方航空集团11",
+				"Level": "CZ",
+				"Desc": "CSN"
+			},
+			{
+				"Type": "国内",
+				"Name": "15",
+				"ParentName": "春秋航空公司12",
+				"Level": "9C",
+				"Desc": "CQH"
+			},{
+			"Type": "国内",
+			"Name": "15",
+			"ParentName": "春秋航空公司13",
+			"Level": "9C",
+			"Desc": "CQH"
+		},
+		{
+			"Type": "国内",
+			"Name": "15",
+			"ParentName": "海南省航空公司14",
+			"Level": "HU",
+			"Desc": "CHH"
+		},
+		{
+			"Type": "国内",
+			"Name": "11",
+			"ParentName": "四川航空公司15",
+			"Level": "3U",
+			"Desc": "CSC"
+		},
+		{
+			"Type": "国内",
+			"Name": "26",
+			"ParentName": "中国南方航空集团16",
+			"Level": "CZ",
+			"Desc": "CSN"
+		},
+		{
+			"Type": "国内",
+			"Name": "15",
+			"ParentName": "春秋航空公司17",
+			"Level": "9C",
+			"Desc": "CQH"
+		},
+		{
+			"Type": "国内",
+			"Name": "40",
+			"ParentName": "海南省航空公司18",
+			"Level": "HU",
+			"Desc": "CHH"
+		},
+		{
+			"Type": "国外",
+			"Name": "11",
+			"ParentName": "四川航空公司19",
+			"Level": "3U",
+			"Desc": "CSC"
+		},
+		{
+				"Type": "国内",
+				"Name": "15",
+				"ParentName": "春秋航空公司20",
+				"Level": "9C",
+				"Desc": "CQH"
+			},
+			{
+				"Type": "国内",
+				"Name": "15",
+				"ParentName": "海南省航空公司21",
+				"Level": "HU",
+				"Desc": "CHH"
+			},
+			{
+				"Type": "国内",
+				"Name": "11",
+				"ParentName": "四川航空公司22",
+				"Level": "3U",
+				"Desc": "CSC"
+			},
+			{
+				"Type": "国内",
+				"Name": "26",
+				"ParentName": "中国南方航空集团23",
+				"Level": "CZ",
+				"Desc": "CSN"
+			},
+			{
+				"Type": "国内",
+				"Name": "15",
+				"ParentName": "春秋航空公司24",
+				"Level": "9C",
+				"Desc": "CQH"
+			}
+	]
+})
